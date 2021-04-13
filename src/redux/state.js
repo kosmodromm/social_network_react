@@ -1,3 +1,5 @@
+import { rerenderEntireTree } from "../render";
+
 let state = {
   profilePage: {
     postsData: [
@@ -5,6 +7,7 @@ let state = {
       { id: 2, text: "Hi! How are you?", likeCounts: 9 },
       { id: 3, text: "Like, share, repost!", likeCounts: 17 },
     ],
+    typePost: "test2",
   },
   messagePage: {
     dialogsData: [
@@ -22,6 +25,18 @@ let state = {
       { id: 5, message: "Yo" },
     ],
   },
+};
+
+export let addPost = () => {
+  let newPost = { id: 4, text: state.profilePage.typePost, likeCounts: 0 };
+  state.profilePage.postsData.push(newPost);
+  state.profilePage.typePost = "";
+  rerenderEntireTree(state);
+};
+
+export let typing = (text) => {
+  state.profilePage.typePost = text;
+  rerenderEntireTree(state);
 };
 
 export default state;

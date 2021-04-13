@@ -26,5 +26,6 @@
   padding: 5px;
 }
 
-.message {
+.newMessage {
+  padding: 25px;
 }

@@ -19,7 +19,11 @@ function App(props) {
             <Route
               path="/profile"
               render={() => (
-                <Profile profilePage={props.appState.profilePage} />
+                <Profile
+                  profilePage={props.appState.profilePage}
+                  addPost={props.addPost}
+                  typing={props.typing}
+                />
               )}
             />
             <Route
